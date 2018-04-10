@@ -1,0 +1,225 @@
+{% extends "base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_doku.html">Wundprotokoll</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="meine_doku.html">Wundanamnese</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kommunikation_main.html">Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">Wundprotokoll: Frau März</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <a href="wund_doku.html" class="btn btn-primary">Zurück zur List</a>
+            <a href="#" class="btn btn-primary" data-target="#mailDialog" data-toggle="modal">Als Email senden</a>
+            <a href="#" class="btn btn-primary" data-target="#teilenDialog" data-toggle="modal">Teilen</a>
+            <a href="#" class="btn btn-primary" data-target="#notizMain" data-toggle="modal">Notizen</a>
+            <a href="#" class="btn btn-primary" data-target="#notizMain" data-toggle="modal">App Freigeben</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-inline">
+            <li class="list-inline-item">Erstellungsdatum:&nbsp;</li>
+            <li class="list-inline-item">24.01.2018</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <img class="img-fluid d-block" src="http://www.pflege-zeit.de/typo3temp/GB/6a5035a16f.png">
+          {% with url=url%}
+          <img class="img-fluid d-block" src={{ url }}>
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="mailDialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Mail senden</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <li class="list-inline-item">Von:</li>
+          <input class="form-control mr-2" type="text" placeholder="Email">
+          <li class="list-inline-item">An:</li>
+          <input class="form-control mr-2" type="text" placeholder="Email">
+          <li class="list-inline-item">Betreff:</li>
+          <input class="form-control mr-2" type="text" placeholder="">
+          <li class="list-inline-item">Text:</li>
+          <input class="form-control mr-2" type="text" placeholder="">
+          <li class="list-inline-item">Anhang:</li>
+          <div class="btn-group">
+            <button class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">Auswahl</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Wundanamnese</a>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Senden</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="teilenDialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Teilen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="checkbox"> <label><input type="checkbox" value=""> Dr. Herbst</label> </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Teilen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="notizMain">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Notizen für Wundanamnese &nbsp;Max Mustermann</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="btn-group">
+            <a href="#" class="btn btn-outline-primary" data-target="#notizBlank" data-toggle="modal">+Anlegen</a>
+            <a href="#" class="btn btn-outline-primary">Löschen</a>
+          </div>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Notiz</th>
+                <th>erstellt von</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01.01.2018</td>
+                <td>
+                  <a href="#" data-target="#notizEdit" data-toggle="modal">Bemerkung</a>
+                </td>
+                <td>Frau Pfleger@Pflegedienst</td>
+              </tr>
+              <tr>
+                <td>12.12.2017</td>
+                <td>Fehler</td>
+                <td>Frau Sommer@Wundschwester</td>
+              </tr>
+              <tr>
+                <td>10.12.2017</td>
+                <td>Änderung</td>
+                <td>Dr. Herbst@Doktor</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="notiz">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Notiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control mr-2 form-control-lg" type="text" placeholder="Text"> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Speichern</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="notizBlank">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Notiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control mr-2 form-control-lg" type="text" placeholder="Text"> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Speichern</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="notizEdit">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Notiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <p class="lead">Bemerkung für die Wunde text text text</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

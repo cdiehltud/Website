@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+<body style="background-color: #eee;">
+
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<div class="container">
+	<div class="row align-items-start">
+    	<div class="col p-3 mb-2 bg-success text-white">
+			<h3>Einfach Ambulant Portal Demo.</h3>
+    	</div>
+	</div>
+	<div class="row align-items-center">
+		<div class="col-6">
+      		<img src="https://einfach-ambulant.de/wp-content/uploads/2017/09/cropped-Zwischenablage01.jpg" class="img-fluid" alt="Responsive image">
+    	</div>
+		<div class="col-6">
+      		<form action="/login" method="POST">
+				<div class="login">
+					<div class="login-screen">
+						<div class="app-title">
+							<h1>Login</h1>
+						</div>
+
+						<div class="login-form">
+							<div class="control-group">
+							<input type="text" class="login-field" value="" placeholder="username" name="username">
+							<label class="login-field-icon fui-user" for="login-name"></label>
+							</div>
+
+							<div class="control-group">
+							<input type="password" class="login-field" value="" placeholder="password" name="password">
+							<label class="login-field-icon fui-lock" for="login-pass"></label>
+							</div>
+
+							<input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
+							<br>
+						</div>
+					</div>
+				</div>
+			</form>
+
+    	</div>
+
+	</div>
+<hr></hr>
+</div>
+
+<footer class="container">
+	<p>@2018 TUD</p>
+</footer>
+
+{% endif %}
+{% endblock %}
+
+</body>

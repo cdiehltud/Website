@@ -1,0 +1,7 @@
+import os
+STRIPE_API_KEY = 'SmFjb2IgS2FwbGFuLU1vc3MgaXMgYSBoZXJv'
+SQLALCHEMY_DATABASE_URI= 'mysql://root:@localhost/mydb'
+DEBUG = True
+SQLALCHEMY_ECHO = True
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+SECRET_KEY= os.urandom(24)

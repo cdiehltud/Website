@@ -1,0 +1,76 @@
+{% extends "base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="wund_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_doku.html">Wundprotokoll</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="meine_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="meine_doku.html">Wundanamnese</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <a href="{{ url_for('kommunikation_main') }}" class="btn btn-primary">Zurück zur List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Zeit</th>
+                <th>Für Patient</th>
+                <th>Empfänger</th>
+                <th>Thema</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-primary"></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr class="">
+                <td class="">1</td>
+                <td>12.01.2015</td>
+                <td>Frau März</td>
+                <td>Frau Sommer</td>
+                <td>Bemerking für die Wunde</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

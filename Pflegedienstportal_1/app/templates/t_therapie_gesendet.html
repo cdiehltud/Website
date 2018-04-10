@@ -1,0 +1,62 @@
+{% extends "t_base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="t_dashboard.html" class="nav-link text-warning"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Therapie Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <a href="{{ url_for('t_dashboard') }}" class="btn btn-warning">Zurück</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Zeit</th>
+                <th>Für Patient</th>
+                <th>Empfänger</th>
+                <th>Thema</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% with array=array %}
+              {% for news in array %}
+              {% if news.sender == news.user %}
+              <tr onclick="window.location.href = '{{ url_for( 't_nachricht' , id=news.id ) }}';">
+                <td>{{ news.time }}</td>
+                <td>{{ news.pat_name }}</td>
+                <td>{{ news.receiver }}</td>
+                <td>{{ news.topic }}</td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            {% endwith %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

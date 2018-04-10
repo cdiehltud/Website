@@ -1,0 +1,123 @@
+{% extends "base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_doku.html">Wundprotokoll</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Wundanamnese</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kommunikation_main.html">Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">Wundanamnese</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" data-target="#myModal" data-toggle="modal">Filtern nach Zeit</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-target="#patientSuchen" data-toggle="modal">Filtern nach Patient</a>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" data-target="#hochladen" data-toggle="modal">Hochladen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Zeit</th>
+                <th>Patient</th>
+                <th>Erstellt von</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% with array=array %}
+              {% for wundanamnese in array %}
+              <tr onclick="window.location.href = '{{ url_for( 'wundanamnese' , id=wundanamnese.id ) }}';">
+                <td>{{wundanamnese.time}}</td>
+                <td>{{wundanamnese.pat_name}}</td>
+                <td>{{wundanamnese.user_name}}</td>
+              </tr>
+              {% endfor %}
+              {% endwith %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="hochladen">
+    <div class="modal-dialog" role="document">
+      <form method="post" action='/handle_hochladen' enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hochladen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file">
+        </div>
+        <div class="modal-body"><select class="form-control" name="select"><option value="Herr Winter">Herr Winter</option><option value="Frau März">Frau März</option><option value="Herr Frühauf">Herr Frühauf</option></select></div>
+        <div class="modal-footer">
+          <button type="sumbit" value="Upload" class="btn btn-primary">Hochladen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal" id="patientSuchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body"><select class="form-control"><option value="1">Herr Winter</option><option value="2">Frau März</option><option value="3">Herr Frühauf</option></select></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Suchen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

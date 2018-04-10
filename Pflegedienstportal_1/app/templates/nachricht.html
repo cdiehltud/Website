@@ -1,0 +1,108 @@
+{% extends "base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="{{ url_for('dashboard') }}" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_doku.html">Wundprotokoll</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="meine_doku.html">Wundanamnese</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <a href="{{ url_for('kommunikation_main') }}" class="btn btn-primary">Zurück zur List</a>
+            <a href="meine_doku.html" class="btn btn-primary" data-target="#antwort" data-toggle="modal">&lt;- Antworten</a>
+            <a href="#" class="btn btn-primary" data-target="#teilenDialogNachricht" data-toggle="modal">Teilen -&gt;</a>
+            <a href="#" class="btn btn-primary">Löschen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {% with sender=info.sender,topic=info.topic %}
+          <p>&nbsp; {{ topic}} {{ sender}}</p>
+          {% endwith%}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 border border-primary">
+            {% with text=info.text%}
+          <p class="lead h-50 w-100 m-1 p-1">{{text}}
+          {% endwith%}
+          <img class="img-fluid d-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4TU4EbxfjL5IuWpZU-kLysZV9AhqG55Bb3LcSJwl4PlOrbcDE">
+          <a class="btn btn-primary" href="#">Herunterladen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="teilenDialogNachricht">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Teilen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <div class="checkbox"> <label><input type="checkbox" value=""> Frau Sommer</label> </div>
+          <div class="checkbox"> <label><input type="checkbox" value=""> Dr. Herbst</label> </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Teilen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="antwort">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Antworten</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <li class="list-inline-item">Text:</li>
+          <input class="form-control mr-2 h-50" type="text" placeholder="">
+          <input type="file" class="form-control-file" id="exampleFormControlFile1"> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Senden</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

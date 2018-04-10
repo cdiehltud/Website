@@ -1,0 +1,122 @@
+{% extends "base_nav.html" %}
+{% block content %}
+  <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="#" class="active nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+            </li>
+            <li class="nav-item">
+              <a href="therapie_kommunikation.html" class="nav-link">Therapie Kommunikation</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Angehörige Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Filtern nach Zeit</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-target="#patientSuchen" data-toggle="modal">Filtern nach Patient</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" data-target="#senderSuchen" data-toggle="modal">Filtern nach Sender</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Zeit</th>
+                <th>Patient</th>
+                <th>Sender</th>
+                <th>Thema</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-primary">
+                <td class="bg-secondary">
+                  <a href="nachricht.html">1</a>
+                </td>
+                <td class="bg-secondary">25.01.2018</td>
+                <td class="bg-secondary">Herr Winter</td>
+                <td class="bg-secondary">Frau Sommer</td>
+                <td class="bg-secondary">Wundbehandelungsvorschlag</td>
+              </tr>
+              <tr class="table-primary">
+                <td class="bg-secondary">
+                  <a href="wundprotokoll.html">2</a>
+                </td>
+                <td class="bg-secondary">20.01.2018</td>
+                <td class="bg-secondary">Frau März</td>
+                <td class="bg-secondary">Frau Sommer</td>
+                <td class="bg-secondary">Wundpotokoll</td>
+              </tr>
+              <tr class="table-warning">
+                <td>
+                  <a href="therapie_nachricht.html">3</a>
+                </td>
+                <td>12.01.2018</td>
+                <td>Herr Frühauf</td>
+                <td>Frau Wolf</td>
+                <td class="">Logotherapie Information</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="patientSuchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body"><select class="form-control"><option value="1">Herr Winter</option><option value="2">Frau März</option><option value="3">Herr Frühauf</option></select></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Suchen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="senderSuchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sender</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control mr-2" type="text" placeholder="Sender"> </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Suchen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

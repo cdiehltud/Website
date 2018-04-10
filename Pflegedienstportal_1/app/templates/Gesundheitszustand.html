@@ -1,0 +1,66 @@
+{% extends "base_nav.html" %}
+{% block content %}
+  <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link text-success"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success active" href="#http://example.com">Gesundheitszustand</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success" href="patient.html">Patient Kalender</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {% with name=patient_name %}
+          <h5 class="">{{name}}</h5>
+          {% endwith %}
+          {% with content=content %}
+          <p class="lead">Geburtsdatum :{{ content["Geburtsdatum"] }}</p>
+          <p class="lead"> Adresse: {{ content["Adresse"] }}</p>
+          <p class="lead"> Telefonnummer: {{ content["Telefonnummer"] }}</p>
+          <p class="lead"> Kontaktperson: {{ content["Kontaktperson"] }}</p>
+          <p class="lead"> Krankenversicherungsnummer: {{ content["Krankenversicherungsnummer"] }}</p>
+          <p class="lead"> Aufenthaltsort: {{ content["Aufenthaltsort"] }}</p>
+          <p class="lead"> Kontakte Care Team: {{ content["Kontakte Care Team"] }}</p>
+          <p class="lead"> Diagnosen: {{ content["Diagnosen"] }}</p>
+          <p class="lead"> Hilfsmittel: {{ content["Hilfsmittel"] }}</p>
+          <p class="lead"> Kostform: {{ content["Kostform"] }}</p>
+          <p class="lead"> Vitaldaten: {{ content["Vitaldaten"] }}</p>
+          <p class="lead"> Aktueller Zustand: {{ content["Aktueller Zustand"] }}</p>
+
+
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+<!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-success" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dokumentation&nbsp;</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Wundprotokoll</a>
+                <a class="dropdown-item" href="#">Wundanamnese</a>
+                <a class="dropdown-item" href="#">Stammdaten</a>
+              </div>
+            </li> -->
+

@@ -1,0 +1,41 @@
+
+{% extends "logged.html" %}
+{% block content %}
+<div class="container">
+    {% with x=username %}
+    {% with patient_name=patient_name %}
+    {% include "layout/top.html" %}
+
+      <div class="row">
+            <div class="col-2 bg-primary">
+                {% include "layout/nav.html" %}
+            </div>
+            <div class="col-10">
+
+                    {% if select==2 %}
+                        {% include "layout/patient_status.html" %}
+                    {% elif select ==3 %}
+                        {% include "layout/patient_calender.html" %}
+                    {% elif select ==4 %}
+                        {% include "layout/my_document.html" %}
+                    {% elif select ==5 %}
+                        {% include "layout/partner_document.html" %}
+                    {% else %}
+                    <h4>
+                        Sie Sind in einfach:ambulant Wunschwester Portal:<br>
+                        Einleitung für Benutzer<br>
+                    </h4>
+                        Mit 'Patient Suchen' können Sie neuen Patient auswählen<br>
+                        Mit 'Patient Status' haben Sie ein Überblick über Patient Infos<br>
+                        Mit 'Patient Kalender' haben Sie ein Überblick über aktualle Behandlungstermine (Therapien usw.)<br>
+                        Mit 'meine Dokumentation' können Sie ihre Dokumentation mit anderen Partner austauschen Bezug auf pflegeprozess<br>
+                        Mit 'Parner Dokumentation' erhalten Sie die Dokumentation von Ihren Partner bezug auf Pflegeprozess<br>
+                    {% endif %}
+
+            </div>
+      </div>
+    {% endwith %}
+    {% endwith %}
+</div>
+
+{% endblock %}
