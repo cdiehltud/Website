@@ -1,0 +1,54 @@
+{% extends "a_base_nav.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="a_dashboard.html" class="nav-link text-danger"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{{ url_for('a_dashboard') }}">Kommunikation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{{ url_for('a_gesundheitszustand') }}">Gesundheitszustand</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{{ url_for('a_dokumentation') }}">Dokumentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{ url_for('a_kalender') }}">Kalender</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=31gcqirhd5ddbf0i17bggb9nl0%40group.calendar.google.com&amp;color=%2323164E&amp;ctz=Europe%2FBerlin" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+<!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-success" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dokumentation&nbsp;</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Wundprotokoll</a>
+                <a class="dropdown-item" href="#">Wundanamnese</a>
+                <a class="dropdown-item" href="#">Stammdaten</a>
+              </div>
+            </li> -->
+
