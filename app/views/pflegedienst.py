@@ -18,6 +18,8 @@ def login_html():
             return render_template('dashboard.html')
         if session.get('user_type')== 'Logo':
             return redirect(url_for("t_dashboard"))
+        if session.get('user_type')== 'Ang':
+            return redirect(url_for("a_dashboard"))
         else:
             print('wrong')
 
@@ -44,11 +46,21 @@ def login():
 def wund_kommunikation():
     return render_template('wund_kommunikation.html')
 
+@app.route('/ang_gesendet.html')
+def ang_gesendet():
+    return render_template('ang_gesendet.html')
 
+@app.route('/ang_kommunikation.html')
+def ang_kommunikation():
+    return render_template('ang_kommunikation.html')
 
 @app.route('/dashboard.html')
 def dashboard():
     return render_template('dashboard.html')
+
+@app.route('/a_dashboard.html')
+def a_dashboard():
+    return render_template('a_dashboard.html')
 
 @app.route('/handle_patient', methods=['POST'])
 def handle_patient():
@@ -189,6 +201,18 @@ def w_kommunikation():
 @app.route('/kommunikation.html')
 def kommunikation():
     return render_template('kommunikation.html')
+
+@app.route('/a_kalender.html')
+def a_kalender():
+    return render_template('a_kalender.html')
+
+@app.route('/a_gesundheitszustand.html')
+def a_gesundheitszustand():
+    return render_template('a_gesundheitszustand.html')
+
+@app.route('/a_dokumentation.html')
+def a_dokumentation():
+    return render_template('a_dokumentation.html')
 
 @app.route('/kommunikation_main.html')
 def kommunikation_main():
@@ -342,6 +366,10 @@ def t_therapie_gesendet():
 def w_dashboard():
     return render_template('w_dashboard.html')
 
+@app.route('/a_ang_gesendet.html')
+def a_ang_gesendet():
+    return render_template('a_ang_gesendet.html')
+
 @app.route('/wund_doku.html')
 def wund_doku():
     return render_template('wund_doku.html')
@@ -374,7 +402,16 @@ def wundprotokoll():
     return render_template('wundprotokoll.html',url=url)
 
 
+######### testcode ####################
+@app.route('/test.html')
+def test():
+    return render_template('test.html')
+#
+########################################
+
 def getUserParameter():
     return {
         "username": session["username"],
     }
+
+

@@ -151,7 +151,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          {% with sender=info.sender,topic=info.topic %}
+          {% with sender=array.sender,topic=array.topic %}
           <p>&nbsp; {{ topic}} {{ sender}}</p>
           {% endwith%}
         </div>
@@ -162,7 +162,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 border border-primary">
-          {% with text=info.text%}
+          {% with text=array.text%}
           <p class="lead h-50 w-100 m-1 p-1">{{text}}
           {% endwith%}
         </div>
