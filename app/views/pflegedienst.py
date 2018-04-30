@@ -13,7 +13,7 @@ db=couchserver[dbname]
 def login_html():
     if session.get('logged')==True:
         if session.get('user_type')=='Wundschwester':
-            return render_template('w_dashboard.html')
+            return render_template('w_home.html')
         if session.get('user_type')== 'PDL':
             return render_template('dashboard.html')
         if session.get('user_type')== 'Logo':
@@ -49,6 +49,10 @@ def wund_kommunikation():
 @app.route('/ang_gesendet.html')
 def ang_gesendet():
     return render_template('ang_gesendet.html')
+
+@app.route('/w_dashboard_patient.html')
+def w_dashboard_patient():
+    return render_template('w_dashboard_patient.html')
 
 @app.route('/ang_kommunikation.html')
 def ang_kommunikation():
@@ -123,9 +127,12 @@ def webchat():
     print("webchat")
     return render_template("webchat.html")
 
+@app.route('/w_home.html')
+def w_home():
+    return render_template("w_home.html")
+
 @app.route('/dokumentation.html')
 def dokumentation():
-
     return render_template("dokumentation.html")
 
 @app.route('/handle_modal_news',methods = ['GET', 'POST'])
