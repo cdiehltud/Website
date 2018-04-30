@@ -19,7 +19,7 @@ def login_html():
         if session.get('user_type')== 'Logo':
             return redirect(url_for("t_dashboard"))
         if session.get('user_type')== 'Ang':
-            return redirect(url_for("a_dashboard"))
+            return redirect(url_for("a_home"))
         else:
             print('wrong')
 
@@ -45,6 +45,14 @@ def login():
 @app.route('/t_dashboard.html')
 def t_dashboard():
     return render_template('t_dashboard.html')
+
+@app.route('/a_home.html')
+def a_home():
+    return render_template('a_home.html')
+
+@app.route('/a_home_patient.html')
+def a_home_patient():
+    return render_template('a_home_patient.html')
 
 @app.route('/t_gesundheitszustand.html')
 def t_gesundheitszustand():

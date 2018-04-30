@@ -6,19 +6,10 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs text-danger">
             <li class="nav-item">
-              <a href="" class="nav-link text-danger"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+              <a href="{{ url_for('a_home') }}" class="nav-link text-danger"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('a_dashboard') }}">Kommunikation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="{{ url_for('a_gesundheitszustand') }}">Gesundheitszustand</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="{{ url_for('a_dokumentation') }}">Dokumentation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="{{ url_for('a_kalender') }}">Kalender</a>
+              <a class="nav-link active" href="">Pflegedienst Kommunikation</a>
             </li>
           </ul>
         </div>

@@ -6,21 +6,27 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a href="a_dashboard.html" class="nav-link text-danger"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+              <a href="a_home.html" class="nav-link text-danger"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-danger" href="{{ url_for('a_dashboard') }}">Kommunikation</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="{{ url_for('a_gesundheitszustand') }}">Gesundheitszustand</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-danger" href="{{ url_for('a_dokumentation') }}">Dokumentation</a>
+              <a class="nav-link active" href="{{ url_for('a_gesundheitszustand') }}">Übersicht</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-danger" href="{{ url_for('a_kalender') }}">Kalender</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link text-danger" href="{{ url_for('a_dokumentation') }}">Dokumentation</a>
+            </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <a href="{{ url_for('a_home_patient') }}" class="btn btn-danger">Zurück zur List</a>
         </div>
       </div>
     </div>
