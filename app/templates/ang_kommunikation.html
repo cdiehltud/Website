@@ -6,10 +6,10 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a href="{{ url_for('dashboard') }}" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+              <a href="{{ url_for('dashboard') }}" class="nav-link text-success"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Angehörige Kommunikation</a>
+              <a class="nav-link active text-success" href="#">Angehörige Kommunikation</a>
             </li>
           </ul>
         </div>
@@ -22,7 +22,7 @@
         <div class="col-md-12">
           <div class="btn-group">
             <div class="btn-group">
-              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter</button>
+              <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"> Filter</button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Filtern nach Zeit</a>
                 <div class="dropdown-divider"></div>
@@ -31,9 +31,9 @@
                 <a class="dropdown-item" href="#" data-target="#senderSuchen" data-toggle="modal">Filtern nach Sender</a>
               </div>
             </div>
-            <a href="{{ url_for('meine_doku') }}" class="btn btn-primary" data-target="#neuNachricht" data-toggle="modal">+ Neue Nachricht</a>
-            <a href="{{ url_for('ang_gesendet') }}" class="btn btn-primary">Gesendet</a>
-            <a href="{{ url_for('test') }}" class="btn btn-primary">Web Chat</a>
+            <a href="{{ url_for('meine_doku') }}" class="btn btn-success" data-target="#neuNachricht" data-toggle="modal">+ Neue Nachricht</a>
+            <a href="{{ url_for('ang_gesendet') }}" class="btn btn-success">Gesendet</a>
+            <a href="{{ url_for('test') }}" class="btn btn-success">Web Chat</a>
           </div>
         </div>
       </div>

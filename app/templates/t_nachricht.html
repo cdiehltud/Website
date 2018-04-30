@@ -24,7 +24,7 @@
             <a href="{{ url_for('t_pflegekommunikation') }}" class="btn btn-warning">Zurück zur List</a>
             <a href="meine_doku.html" class="btn btn-warning" data-target="#antwort" data-toggle="modal">&lt;- Antworten</a>
             <a href="#" class="btn btn-warning" data-target="#teilenDialogNachricht" data-toggle="modal">Teilen -&gt;</a>
-            <a href="#" class="btn btn-warning">Löschen</a>
+            <a href="#" class="btn btn-warning" onclick="window.location.href = '{{ url_for( 'handle_delete_t_news' , id=id ) }}'">Löschen</a>
           </div>
         </div>
       </div>

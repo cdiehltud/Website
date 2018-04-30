@@ -197,7 +197,7 @@ def handle_modal_news():
     db.put_attachment(doc, file, "file")
 
     if session.get('user_type')== 'Logo':
-        return redirect(url_for("t_dashboard"))
+        return redirect(url_for("t_therapie_gesendet"))
     if session.get('user_type')== 'PDL':
         if receiver =="Frau Wolf":
             return redirect(url_for("therapie_kommunikation"))
@@ -364,7 +364,7 @@ def t_nachricht(id):
     sender = db.get(id)["sender"]
     text =db.get(id)["text"]
     info ={"topic":topic,"sender":sender,"text":text}
-    return render_template('t_nachricht.html',info=info)
+    return render_template('t_nachricht.html',info=info, id=id)
 
 @app.route('/gesendet')
 def gesendet():
@@ -413,7 +413,7 @@ def therapie_nachricht(id):
     sender = db.get(id)["sender"]
     text = db.get(id)["text"]
     info = {"topic": topic, "sender": sender, "text": text}
-    return render_template('therapie_nachricht.html',info=info)
+    return render_template('therapie_nachricht.html',info=info, id=id)
 
 
 @app.route('/t_therapie_gesendet')
@@ -425,7 +425,7 @@ def t_therapie_gesendet():
                 if db[doc]["sender"] == "Frau Wolf":
                     id = db[doc].id
                     time = db.get(id)["time"]
-                    pat_name = db.get(id)["patient_name"]
+                    pat_name = db.get(id)["pat_name"]
                     receiver = db.get(id)["receiver"]
                     topic = db.get(id)["topic"]
                     content = {"id": id, "time": time, "pat_name": pat_name, "receiver": receiver, "topic": topic}
@@ -475,9 +475,18 @@ def wundanamnese(id):
 
 @app.route('/handle_delete/<id>/')
 def handle_delete(id):
-
     db.delete(db.get(id))
     return redirect(url_for("meine_doku"))
+
+@app.route('/handle_delete_news/<id>/')
+def handle_delete_news(id):
+    db.delete(db.get(id))
+    return redirect(url_for("therapie_kommunikation"))
+
+@app.route('/handle_delete_t_news/<id>/')
+def handle_delete_t_news(id):
+    db.delete(db.get(id))
+    return redirect(url_for("t_pflegekommunikation"))
 
 @app.route('/wundprotokoll.html')
 def wundprotokoll():

@@ -47,13 +47,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="btn-group">
-            <a href="{{ url_for('meine_doku') }}" class="btn btn-primary">Zurück zur List</a>
-            <a href="#" class="btn btn-primary" data-target="#mailDialog" data-toggle="modal">Als Email senden</a>
-            <a href="#" class="btn btn-primary" data-target="#teilenDialog" data-toggle="modal">Teilen</a>
+            <a href="{{ url_for('meine_doku') }}" class="btn btn-success">Zurück zur List</a>
+            <a href="#" class="btn btn-success" data-target="#mailDialog" data-toggle="modal">Als Email senden</a>
+            <a href="#" class="btn btn-success" data-target="#teilenDialog" data-toggle="modal">Teilen</a>
             {% with id=id %}
-            <a href="#" class="btn btn-primary" onclick="window.location.href = '{{ url_for( 'handle_delete' , id=id ) }}'">Löschen</a>
+            <a href="#" class="btn btn-success" onclick="window.location.href = '{{ url_for( 'handle_delete' , id=id ) }}'">Löschen</a>
             {% endwith %}
-            <a href="#" class="btn btn-primary" data-target="#notizMain" data-toggle="modal">Notizen</a>
+            <a href="#" class="btn btn-success" data-target="#notizMain" data-toggle="modal">Notizen</a>
           </div>
         </div>
       </div>

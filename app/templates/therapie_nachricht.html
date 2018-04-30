@@ -6,10 +6,10 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a href="{{ url_for('dashboard') }}" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+              <a href="{{ url_for('dashboard') }}" class="nav-link text-success"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Therapie Kommunikation</a>
+              <a class="nav-link active text-success" href="#">Therapie Kommunikation</a>
             </li>
           </ul>
         </div>
@@ -21,10 +21,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="btn-group">
-            <a href="{{ url_for('therapie_kommunikation') }}" class="btn btn-primary">Zurück zur List</a>
-            <a href="{{ url_for('meine_doku') }}" class="btn btn-primary" data-target="#antwort" data-toggle="modal">&lt;- Antworten</a>
-            <a href="#" class="btn btn-primary" data-target="#teilenDialogNachricht" data-toggle="modal">Teilen -&gt;</a>
-            <a href="#" class="btn btn-primary">Löschen</a>
+            <a href="{{ url_for('therapie_kommunikation') }}" class="btn btn-success">Zurück zur List</a>
+            <a href="{{ url_for('meine_doku') }}" class="btn btn-success" data-target="#antwort" data-toggle="modal">&lt;- Antworten</a>
+            <a href="#" class="btn btn-success" data-target="#teilenDialogNachricht" data-toggle="modal">Teilen -&gt;</a>
+            {% with id=id %}
+            <a href="#" class="btn btn-success" onclick="window.location.href = '{{ url_for( 'handle_delete_news' , id=id ) }}'">Löschen</a>
+            {% endwith %}
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@
             <tbody>
               {% with array=array %}
               {% for news in array %}
-                {% if news.receiver == news.user %}
+                {% if news.receiver == news.user and news.sender == "Frau Pfleger"%}
                 <tr onclick="window.location.href = '{{ url_for( 't_nachricht' , id=news.id ) }}';">
                   <td>{{news.time}}</td>
                   <td>{{news.pat_name}}</td>
