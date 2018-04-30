@@ -42,6 +42,22 @@ def login():
 
     return login_html()
 
+@app.route('/t_dashboard.html')
+def t_dashboard():
+    return render_template('t_dashboard.html')
+
+@app.route('/t_gesundheitszustand.html')
+def t_gesundheitszustand():
+    return render_template('t_gesundheitszustand.html')
+
+@app.route('/t_patient.html')
+def t_patient():
+    return render_template('t_patient.html')
+
+@app.route('/t_dashboard_patient.html')
+def t_dashboard_patient():
+    return render_template('t_dashboard_patient.html')
+
 @app.route('/wund_kommunikation.html')
 def wund_kommunikation():
     return render_template('wund_kommunikation.html')
@@ -49,6 +65,14 @@ def wund_kommunikation():
 @app.route('/ang_gesendet.html')
 def ang_gesendet():
     return render_template('ang_gesendet.html')
+
+@app.route('/w_gesundheitszustand.html')
+def w_gesundheitszustand():
+    return render_template('w_gesundheitszustand.html')
+
+@app.route('/w_patient.html')
+def w_patient():
+    return render_template('w_patient.html')
 
 @app.route('/w_dashboard_patient.html')
 def w_dashboard_patient():
@@ -65,6 +89,10 @@ def dashboard():
 @app.route('/a_dashboard.html')
 def a_dashboard():
     return render_template('a_dashboard.html')
+
+@app.route('/w_dokumentation.html')
+def w_dokumentation():
+    return render_template('w_dokumentation.html')
 
 @app.route('/handle_patient', methods=['POST'])
 def handle_patient():
@@ -302,8 +330,8 @@ def nachricht(id):
 def patient():
     return render_template('patient.html')
 
-@app.route('/t_dashboard.html')
-def t_dashboard():
+@app.route('/t_pflegekommunikation.html')
+def t_pflegekommunikation():
     news_array = []
     for doc in db:
         if db[doc].get("subject_Type") == "document":
@@ -320,7 +348,7 @@ def t_dashboard():
                 k = {"pat_name": pat_name, "sender": sender, "time": time, "topic": topic,
                      "id": id,"receiver":receiver, "user":user}
                 news_array.append(k)
-    return render_template('t_dashboard.html', array=news_array)
+    return render_template('t_pflegekommunikation.html', array=news_array)
 
 @app.route('/t_nachricht.html/<id>/')
 def t_nachricht(id):

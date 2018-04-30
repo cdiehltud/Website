@@ -1,0 +1,51 @@
+{% extends "t_base_nav.html" %}
+{% block content %}
+  <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="t_dashboard.html" class="nav-link text-warning"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning active" href="t_gesundheitszustand.html">Übersicht</a>
+            </li>
+            <li class="nav-item">
+              <a href="t_patient.html" class="nav-link text-warning">Kalender</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <a href="{{ url_for('t_dashboard_patient') }}" class="btn btn-warning">Zurück zur List</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">Geburtsdatum :</p>
+          <p class="lead"> Adresse: </p>
+          <p class="lead"> Telefonnummer:</p>
+          <p class="lead"> Kontaktperson: </p>
+          <p class="lead"> Krankenversicherungsnummer:</p>
+          <p class="lead"> Aufenthaltsort:</p>
+          <p class="lead"> Kontakte Care Team:</p>
+          <p class="lead"> Diagnosen:</p>
+          <p class="lead"> Hilfsmittel:</p>
+          <p class="lead"> Kostform:</p>
+          <p class="lead"> Vitaldaten:</p>
+          <p class="lead"> Aktueller Zustand:</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

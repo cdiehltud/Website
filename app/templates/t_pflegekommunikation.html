@@ -1,0 +1,134 @@
+{% extends "t_base_nav_1.html" %}
+{% block content %}
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs text-warning">
+            <li class="nav-item">
+              <a href="t_dashboard.html" class="nav-link text-warning"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Pflegedienst Kommunikation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group bg-warning text-light">
+            <div class="btn-group">
+              <button class="btn dropdown-toggle btn-warning" data-toggle="dropdown"> Filter</button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Filtern nach Zeit</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-target="#patientSuchen" data-toggle="modal">Filtern nach Patient</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-target="#senderSuchen" data-toggle="modal">Filtern nach Sender</a>
+              </div>
+            </div>
+            <a href="" class="btn btn-warning" data-target="#neuNachricht" data-toggle="modal">+ Neue Nachricht</a>
+            <a href="{{ url_for('t_therapie_gesendet') }}" class="btn btn-warning">Gesendet</a>
+            <a href="https://einfachambulant.slack.com/messages/D9KTY1Y91/" class="btn btn-warning">Web Chat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Zeit</th>
+                <th>Für Patient</th>
+                <th>Sender</th>
+                <th>Thema</th>
+                <th>Gelesen</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% with array=array %}
+              {% for news in array %}
+                {% if news.receiver == news.user %}
+                <tr onclick="window.location.href = '{{ url_for( 't_nachricht' , id=news.id ) }}';">
+                  <td>{{news.time}}</td>
+                  <td>{{news.pat_name}}</td>
+                  <td>{{news.sender}}</td>
+                  <td>{{news.topic}}</td>
+                </tr>
+                {% endif %}
+              {% endfor %}
+              {% endwith %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="neuNachricht">
+    <div class="modal-dialog" role="document">
+      <form method="post" action='/handle_modal_news' enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nachricht senden</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body">
+          <p>An:</p>
+          <div class="modal-body">
+            <div class="checkbox"><label><input type="checkbox" value="Frau Pfleger"name ="checkbox1">&nbsp;Frau Pfleger</label> </div>
+          <li class="list-inline-item">Für Patient:</li>
+          <div class="modal-body"><select class="form-control" name ="select"><option value="Herr Winter">Herr Winter</option><option value="Frau März">Frau März</option><option value="Herr Frühauf">Herr Frühauf</option></select></div>
+        </div>
+        <div class="modal-body">
+          <li class="list-inline-item">Thema:</li>
+          <input class="form-control mr-2" type="text" placeholder="" name="thema">
+          <li class="list-inline-item">Text:</li>
+          <input class="form-control mr-2 h-50" type="text" placeholder="" name="text">
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file"> </div>
+        <div class="modal-footer">
+          <button type="submit" value="Upload" class="btn btn-primary">Senden</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal" id="patientSuchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Patient</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body"><select class="form-control"><option value="1">Herr Winter</option><option value="2">Frau März</option><option value="3">Herr Frühauf</option></select></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Suchen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="senderSuchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sender</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <div class="modal-body"><select class="form-control"><option value="1">Frau Wolf</option><option value="2">Herr Mai</option><option value="3">Herr Fuchs</option></select></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Suchen</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
