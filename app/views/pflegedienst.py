@@ -89,6 +89,29 @@ def handle_patient():
             print("in")
             return render_template('Gesundheitszustand.html', patient_name="wrong name",content=None)
 
+@app.route('/handle_dashboard_patient/<name>')
+def handle_dashboard_patient(name):
+    session.pop('patient_name', None)
+    session['patient_name'] = name
+    '''for doc in db:
+        if db[doc].get("subject_Type") == "patient":
+            print(db[doc]['patient_name'],"ok")
+            print(name)
+            if name == db[doc]['patient_name']:
+                session['patient_name']=name
+                id = db[doc].id
+                pat_id = db[id]["pat_id"]
+                for doc in db:
+                    if db[doc]["subject_Type"] == "document":
+                        if db[doc]["doc_type"] == "gesundheitszustand":
+                            patient_id = db[doc]["pat_id"]
+                            if patient_id == pat_id:
+                                content = db[doc]["content"]
+                                return render_template('Gesundheitszustand.html',patient_name=session['patient_name'],
+                                                       content=content)'''
+    return redirect(url_for('gesundheitszustand'))
+
+
 @app.route('/abmelden.html')
 def abmelden():
     session.pop('username', None)
@@ -99,6 +122,11 @@ def abmelden():
 def webchat():
     print("webchat")
     return render_template("webchat.html")
+
+@app.route('/dokumentation.html')
+def dokumentation():
+
+    return render_template("dokumentation.html")
 
 @app.route('/handle_modal_news',methods = ['GET', 'POST'])
 def handle_modal_news():
@@ -354,7 +382,7 @@ def t_therapie_gesendet():
                 if db[doc]["sender"] == "Frau Wolf":
                     id = db[doc].id
                     time = db.get(id)["time"]
-                    pat_name = db.get(id)["pat_name"]
+                    pat_name = db.get(id)["patient_name"]
                     receiver = db.get(id)["receiver"]
                     topic = db.get(id)["topic"]
                     content = {"id": id, "time": time, "pat_name": pat_name, "receiver": receiver, "topic": topic}
@@ -365,6 +393,19 @@ def t_therapie_gesendet():
 @app.route('/w_dashboard.html')
 def w_dashboard():
     return render_template('w_dashboard.html')
+
+@app.route('/dashboard_patient.html')
+def dashboard_patient():
+    patient_name = []
+    for doc in db:
+        if db[doc].get("subject_Type") == "patient":
+            id = db[doc].id
+            pat_name = db.get(id)["patient_name"]
+
+            patient_name.append(pat_name)
+    print(patient_name)
+
+    return render_template('dashboard_patient.html',pat_name=patient_name)
 
 @app.route('/a_ang_gesendet.html')
 def a_ang_gesendet():

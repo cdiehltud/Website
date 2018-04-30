@@ -1,6 +1,6 @@
-{% extends "base_nav.html" %}
+{% extends "base_nav_1.html" %}
 {% block content %}
-  <div class="p-3">
+    <div class="p-3">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -9,13 +9,15 @@
               <a href="#" class="active nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+              <a class="nav-link text-success" href="{{ url_for('dashboard_patient') }}">Patient</a>
             </li>
-            <li class="nav-item">
-              <a href="therapie_kommunikation.html" class="nav-link">Therapie Kommunikation</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url_for('ang_kommunikation') }}" class="nav-link">Angehörige Kommunikation</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-success" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Kommunikation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+                <a class="dropdown-item" href="therapie_kommunikation.html">Therapie Kommunikation</a>
+                <a class="dropdown-item" href="ang_kommunikation.html">Angehörige Kommunikation</a>
+              </div>
             </li>
           </ul>
         </div>
@@ -27,7 +29,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="btn-group">
-            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter</button>
+            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"> Filter</button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Filtern nach Zeit</a>
               <div class="dropdown-divider"></div>

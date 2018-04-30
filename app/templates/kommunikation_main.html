@@ -6,25 +6,25 @@
         <div class="col-md-12">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a href="dashboard.html" class="nav-link"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+              <a href="dashboard.html" class="nav-link text-success"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+              <a class="nav-link text-success" href="wund_kommunikation.html">Übersicht</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="wund_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
+              <a class="nav-link dropdown-toggle text-success" href="wund_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wundschwester Dokumentation</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="wund_doku.html">Wundprotokoll</a>
+                <a class="dropdown-item text-success" href="wund_doku.html">Wundprotokoll</a>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="meine_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
+              <a class="nav-link dropdown-toggle text-success" href="meine_doku.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Meine Dokumentation</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="meine_doku.html">Wundanamnese</a>
+                <a class="dropdown-item text-success" href="meine_doku.html">Wundanamnese</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Kommunikation</a>
+              <a class="nav-link active text-success" href="#">Kommunikation</a>
             </li>
           </ul>
         </div>
@@ -37,7 +37,7 @@
         <div class="col-md-12">
           <div class="btn-group">
             <div class="btn-group">
-              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Filter</button>
+              <button class="btn btn-success dropdown-toggle" data-toggle="dropdown"> Filter</button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Filtern nach Zeit</a>
                 <div class="dropdown-divider"></div>
@@ -46,9 +46,9 @@
                 <a class="dropdown-item" href="#" data-target="#senderSuchen" data-toggle="modal">Filtern nach Sender</a>
               </div>
             </div>
-            <a href="meine_doku.html" class="btn btn-primary" data-target="#neuNachricht" data-toggle="modal">+ Neue Nachricht</a>
-            <a href="{{ url_for('gesendet') }}" class="btn btn-primary">Gesendet</a>
-            <a href="https://einfachambulant.slack.com/messages/D9L1F22QJ/" class="btn btn-primary">Web Chat</a>
+            <a href="meine_doku.html" class="btn btn-success" data-target="#neuNachricht" data-toggle="modal">+ Neue Nachricht</a>
+            <a href="{{ url_for('gesendet') }}" class="btn btn-success">Gesendet</a>
+            <a href="https://einfachambulant.slack.com/messages/D9L1F22QJ/" class="btn btn-success">Web Chat</a>
           </div>
         </div>
       </div>
