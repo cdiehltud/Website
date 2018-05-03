@@ -203,6 +203,8 @@ def handle_modal_news():
             return redirect(url_for("therapie_kommunikation"))
         if receiver =="Frau Sommer":
             return redirect(url_for('kommunikation_main'))
+        if receiver =="Tochter Regina":
+            return redirect(url_for('ang_kommunikation'))
         else:
             return redirect(url_for("login"))
     if session.get('user_type') == 'Wundschwester':
@@ -456,7 +458,22 @@ def a_ang_gesendet():
 
 @app.route('/wund_doku.html')
 def wund_doku():
-    return render_template('wund_doku.html')
+    wundprotokoll_array = []
+    k = {}
+    for doc in db:
+        if db[doc].get("subject_Type") == "document":
+            if db[doc]["doc_type"] == "wundprotokoll":
+                k = {}
+                id = db[doc].id
+                pat_name = db.get(id)["pat_name"]
+                user_name = db.get(id)["user_name"]
+                time = db.get(id)["time"]
+                # user = session.get("user_name")
+                # receiver = db.get(id)["receiver"]
+                k = {"pat_name": pat_name, "user_name": user_name, "time": time, "id": id}
+                wundprotokoll_array.append(k)
+
+    return render_template('wund_doku.html', array=wundprotokoll_array)
 
 @app.route('/w_nachricht.html/<id>/')
 def w_nachricht(id):
@@ -473,6 +490,14 @@ def wundanamnese(id):
     url="http://127.0.0.1:5984/einfach_ambulant/"+id+"/wundanamnese"
     return render_template('wundanamnese.html',url = url, pat_name=pat_name,time=time, id=id)
 
+@app.route('/wundprotokoll.html/<id>/')
+def wundprotokoll(id):
+    pat_name = db[id]["pat_name"]
+    time = db[id]["time"]
+    url = "http://127.0.0.1:5984/einfach_ambulant/"+id +"/wundprotokoll"
+
+    return render_template('wundprotokoll.html',url = url, pat_name=pat_name,time=time, id=id)
+
 @app.route('/handle_delete/<id>/')
 def handle_delete(id):
     db.delete(db.get(id))
@@ -488,11 +513,7 @@ def handle_delete_t_news(id):
     db.delete(db.get(id))
     return redirect(url_for("t_pflegekommunikation"))
 
-@app.route('/wundprotokoll.html')
-def wundprotokoll():
-    url="http://127.0.0.1:5984//einfach_ambulant/b3482ca99c50284793c745341f018e10/wundprotokoll.png"
 
-    return render_template('wundprotokoll.html',url=url)
 
 
 ######### testcode ####################

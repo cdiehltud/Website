@@ -66,31 +66,21 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th></th>
                   <th>Zeit</th>
                   <th>Patient</th>
                   <th>Sender</th>
-                  <th>Gelesen</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="table-primary">
-                  <td class="bg-secondary">
-                    <a href="wundprotokoll.html">1</a>
-                  </td>
-                  <td class="bg-secondary">24.01.2018</td>
-                  <td class="bg-secondary">Frau März</td>
-                  <td class="bg-secondary">Frau Sommer</td>
-                  <td class="bg-secondary">Nein</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>20.01.2018</td>
-                  <td>Herr Winter</td>
-                  <td>Herr Sommer</td>
-                  <td>Ja</td>
-                </tr>
-                <tr></tr>
+                {% with array=array %}
+              {% for wundprotokoll in array %}
+              <tr onclick="window.location.href = '{{ url_for( 'wundprotokoll' , id=wundprotokoll.id ) }}';">
+                <td>{{wundprotokoll.time}}</td>
+                <td>{{wundprotokoll.pat_name}}</td>
+                <td>{{wundprotokoll.user_name}}</td>
+              </tr>
+              {% endfor %}
+              {% endwith %}
               </tbody>
             </table>
           </div>

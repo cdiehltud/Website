@@ -35,7 +35,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <p class="lead">Wundprotokoll: Frau März</p>
+          {% with pat_name=pat_name%}
+          <p class="lead">Wundprotokoll: {{ pat_name }}</p>
+          {% endwith %}
         </div>
       </div>
     </div>
@@ -55,13 +57,15 @@
       </div>
     </div>
   </div>
-  <div class="p-0">
+  <div class="p-1">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <ul class="list-inline">
+            {% with time=time%}
             <li class="list-inline-item">Erstellungsdatum:&nbsp;</li>
-            <li class="list-inline-item">24.01.2018</li>
+            <li class="list-inline-item">{{ time }}</li>
+            {% endwith %}
           </ul>
         </div>
       </div>
@@ -71,7 +75,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <img class="img-fluid d-block" src="http://www.pflege-zeit.de/typo3temp/GB/6a5035a16f.png">
           {% with url=url%}
           <img class="img-fluid d-block" src={{ url }}>
           {% endwith %}
