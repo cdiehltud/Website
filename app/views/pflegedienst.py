@@ -1,13 +1,14 @@
 from app import app
 from flask import session,request,render_template,redirect,url_for
-import couchdb,base64,time
+
+import couchdb, base64, time, config
+
 from werkzeug.utils import secure_filename
 from flask_wtf.file import FileField
 
-
-couchserver = couchdb.Server("http://127.0.0.1:5984/")
+couchserver = couchdb.Server(config.COUCHDB_URL)
 dbname ="einfach_ambulant"
-db=couchserver[dbname]
+db = couchserver[dbname]
 
 @app.route('/')
 def login_html():
@@ -527,5 +528,3 @@ def getUserParameter():
     return {
         "username": session["username"],
     }
-
-
