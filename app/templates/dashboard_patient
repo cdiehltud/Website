@@ -1,0 +1,78 @@
+{% extends "base_nav_1.html" %}
+{% block content %}
+  <div class="p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a href="{{ url_for('dashboard') }}" class="nav-link text-success"><i class="fa fa-home fa-home"></i>&nbsp;Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-success active" href="#" data-target="#patient_Suchen" data-toggle="modal">Patient</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-success" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Kommunikation</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="wund_kommunikation.html">Wundschwester Kommunikation</a>
+                <a class="dropdown-item" href="therapie_kommunikation.html">Therapie Kommunikation</a>
+                <a class="dropdown-item" href="ang_kommunikation.html">Angehörige Kommunikation</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-success" type="submit" data-target="#patient_Suchen" data-toggle="modal">Patient Suchen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Patient</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% with names=pat_name %}
+              {% for name in names %}
+              <tr onclick="window.location.href = '{{ url_for( 'handle_dashboard_patient', name=name) }}';">
+                <td>{{name}}</td>
+              </tr>
+              {% endfor %}
+              {% endwith %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="patient_Suchen">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Patient Suchen</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        <form class="form-inline m-0" action="{{ url_for('handle_patient') }}" method="POST">
+        <div class="modal-body">
+          <input class="form-control mr-2" type="text" name="patient_name">
+          <button class="btn btn-success" type="submit">
+            <a class="text-light">Suchen</a>
+          </button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+ {% endblock %}
