@@ -7,7 +7,10 @@ services:
     restart: unless-stopped
 
     environment:
+      # EA_COUCHDB_USER: admin
+      # EA_COUCHDB_PASSWORD: 1234
       EA_COUCHDB_URL: http://db:5984
+      EA_COUCHDB_NAME: einfach_ambulant
     
     ports:
       - "5000:5000"
