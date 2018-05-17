@@ -7,8 +7,12 @@ from werkzeug.utils import secure_filename
 from flask_wtf.file import FileField
 
 couchserver = couchdb.Server(config.COUCHDB_URL)
-dbname ="einfach_ambulant"
-db = couchserver[dbname]
+if config.COUCHDB_USER is not None and config.COUCHDB_PASSWORD is not None:
+    couchserver.resource.credentials = (
+        config.COUCHDB_USER,
+        config.COUCHDB_PASSWORD
+    )
+db = couchserver[config.COUCHDB_NAME]
 
 @app.route('/')
 def login_html():
